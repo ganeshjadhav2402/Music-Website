@@ -199,7 +199,7 @@ header .bottom-side .wave .wave1 {
 
 header .bottom-side .wave .wave1:nth-child(2) {
     height: 13px;
-    margin-right: 3.5px;
+    margin-right: 3px;
     animation-delay: .4s;
 }
 
@@ -315,15 +315,15 @@ header .bottom-side #currStart {
 header .bottom-side .bar {
     position: relative;
     width: 43%;
-    height: 2.5px;
-    background: #23203863;
+    height: 3px;
+    background: #213e45;
     margin: 0px 15px 0px 10px;
 }
 
 header .bottom-side .bar .bar2 {
     position: absolute;
     background: #36e2ec;
-    width: 50%;
+    width: 0%;
     height: 100%;
     top: 0;
     transition: 1s linear;
@@ -365,8 +365,8 @@ header .bottom-side .bar input {
 header .bottom-side .vol {
     position: relative;
     width: 100px;
-    height: 2px;
-    background: #23203863;
+    height: 3px;
+    background: #213e45;
     margin-left: 50px;
 }
 
@@ -391,7 +391,7 @@ header .bottom-side .vol input {
 header .bottom-side .vol .vol-bar {
     position: absolute;
     background: #36e2ec;
-    width: 50%;
+    width: 100%;
     height: 100%;
     top: 0px;
     transition: 1s linear;
@@ -403,7 +403,7 @@ header .bottom-side .vol .dot {
     height: 5px;
     background: #36e2ec;
     border-radius: 50%;
-    left: 0%;
+    left: 100%;
     top: -1.5px;
     transition: 1s linear;
 }
