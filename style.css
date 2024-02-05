@@ -288,6 +288,8 @@ header .bottom-side .icon .shuffle {
 }
 
 header .bottom-side .icon #cloud1 {
+    text-decoration: none;
+    color: #fff;
     cursor: pointer;
     font-size: 30px;
     margin-left: 10px;
@@ -524,6 +526,7 @@ header .song-side nav .user img {
     height: 100%;
     border-radius: 50%;
     box-shadow: 2px 2px 10px #09a2e9;
+    cursor: pointer;
 }
 
 header .song-side .content {

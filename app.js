@@ -132,23 +132,24 @@ master_Play.addEventListener("click", () => {
 });
 
 const makeAllplays = () => {
-  Array.from(document.getElementsByClassName("playListplay")).forEach(el => {
+  Array.from(document.getElementsByClassName("playListplay")).forEach((el) => {
     el.classList.add("bxs-caret-right-circle");
     el.classList.remove("bx-pause-circle");
   });
 };
 const makeAllBackground = () => {
-  Array.from(document.getElementsByClassName("songItem")).forEach(el => {
+  Array.from(document.getElementsByClassName("songItem")).forEach((el) => {
     el.style.background = "rgb(105, 105, 105, .0)";
   });
 };
 
 let index = 0;
 let poster_bottom_play = document.getElementById("poster-bottom-play");
+let cloud = document.getElementById("cloud1");
 let title = document.getElementById("title");
 
-Array.from(document.getElementsByClassName("playListplay")).forEach(e => {
-  e.addEventListener("click", el => {
+Array.from(document.getElementsByClassName("playListplay")).forEach((e) => {
+  e.addEventListener("click", () => {
     index = el.target.id;
     // console.log(index);
     music.src = `audio/${index}.mp3`;
@@ -156,14 +157,15 @@ Array.from(document.getElementsByClassName("playListplay")).forEach(e => {
     music.play();
     master_Play.classList.remove("bx-play");
     master_Play.classList.add("bx-pause");
-
-    let songTitles = songs.filter(els => {
+    cloud.href = `audio/${index}.mp3`;
+    let songTitles = songs.filter((els) => {
       return els.id == index;
     });
 
-    songTitles.forEach(elss => {
+    songTitles.forEach((elss) => {
       let { songName } = elss;
       title.innerHTML = songName;
+      cloud.setAttribute("download", songName);
     });
 
     makeAllBackground();
@@ -242,86 +244,70 @@ vol.addEventListener("change", () => {
   music.volume = vol_a / 100;
 });
 
+let back_btn = document.getElementById("back");
+let next_btn = document.getElementById("next");
 
-let back = document.getElementById("back");
-let next = document.getElementById("next");
-
-back.addEventListener("click", () => {
+back_btn.addEventListener("click", () => {
   index -= 1;
   if (index < 1) {
     index = Array.from(document.getElementsByClassName("songItem")).length;
   }
   music.src = `audio/${index}.mp3`;
-    poster_bottom_play.src = `images/${index}.jpeg`;
-    music.play();
-    master_Play.classList.remove("bx-play");
-    master_Play.classList.add("bx-pause");
-    wave.classList.add("active1");
+  poster_bottom_play.src = `images/${index}.jpeg`;
+  music.play();
+  master_Play.classList.remove("bx-play");
+  master_Play.classList.add("bx-pause");
+  wave.classList.add("active1");
 
+  let songTitles = songs.filter(els => {
+    return els.id == index;
+  });
 
-    let songTitles = songs.filter(els => {
-      return els.id == index;
-    });
+  songTitles.forEach((elss) => {
+    let { songName } = elss;
+    title.innerHTML = songName;
+  });
 
-    songTitles.forEach(elss => {
-      let { songName } = elss;
-      title.innerHTML = songName;
-    });
-
-    makeAllBackground();
-    Array.from(document.getElementsByClassName("songItem"))[
-      index - 1
-    ].style.background =
-      "rgb(105, 105, 105, .2)";
-    makeAllplays();
-    el.target.classList.remove("bxs-caret-right-circle");
-    el.target.classList.add("bx-pause-circle");
-    wave.classList.add("active1");
-  
+  makeAllBackground();
+  Array.from(document.getElementsByClassName("songItem"))[
+    index - 1
+  ].style.background = "rgb(105, 105, 105, .2)";
+  makeAllplays();
+  el.target.classList.remove("bxs-caret-right-circle");
+  el.target.classList.add("bx-pause-circle");
+  wave.classList.add("active1");
 });
 
-next.addEventListener("click", () => {
+next_btn.addEventListener("click", () => {
   index++;
   if (index > Array.from(document.getElementsByClassName("songItem")).length) {
     index = 1;
   }
   music.src = `audio/${index}.mp3`;
-    poster_bottom_play.src = `images/${index}.jpeg`;
-    music.play();
-    master_Play.classList.remove("bx-play");
-    master_Play.classList.add("bx-pause");
-    wave.classList.add("active1");
+  poster_bottom_play.src = `images/${index}.jpeg`;
+  music.play();
+  master_Play.classList.remove("bx-play");
+  master_Play.classList.add("bx-pause");
+  wave.classList.add("active1");
 
+  let songTitles = songs.filter(els => {
+    return els.id == index;
+  });
 
-    let songTitles = songs.filter(els => {
-      return els.id == index;
-    });
+  songTitles.forEach((elss) => {
+    let { songName } = elss;
+    title.innerHTML = songName;
+  });
 
-    songTitles.forEach(elss => {
-      let { songName } = elss;
-      title.innerHTML = songName;
-    });
-
-    makeAllBackground();
-    Array.from(document.getElementsByClassName("songItem"))[
-      index - 1
-    ].style.background =
-      "rgb(105, 105, 105, .2)";
-    makeAllplays();
-    el.target.classList.remove("bxs-caret-right-circle");
-    el.target.classList.add("bx-pause-circle");
-    wave.classList.add("active1");
-})
-
-
-
-
-
-
-
-
-
-
+  makeAllBackground();
+  Array.from(document.getElementsByClassName("songItem"))[
+    index - 1
+  ].style.background = "rgb(105, 105, 105, .2)";
+  makeAllplays();
+  el.target.classList.remove("bxs-caret-right-circle");
+  el.target.classList.add("bx-pause-circle");
+  wave.classList.add("active1");
+});
 
 let pop_song_left = document.getElementById("pop-left");
 let pop_song_right = document.getElementById("pop-right");
@@ -346,3 +332,174 @@ pop_art_right.addEventListener("click", () => {
 pop_art_left.addEventListener("click", () => {
   pop_item.scrollLeft -= 300;
 });
+
+let shuffle = document.getElementsByClassName("shuffle")[0];
+
+shuffle.addEventListener("click", () => {
+  let a = shuffle.innerHTML;
+
+  switch (a) {
+    case "next":
+      shuffle.classList.add("bx-sync");
+      shuffle.classList.remove("bxs-music");
+      shuffle.classList.remove("bx-shuffle");
+      shuffle.innerHTML = "repeat";
+      break;
+
+    case "repeat":
+      shuffle.classList.remove("bx-sync");
+      shuffle.classList.remove("bxs-music");
+      shuffle.classList.add("bx-shuffle");
+      shuffle.innerHTML = "random";
+      break;
+
+    case "random":
+      shuffle.classList.remove("bx-sync");
+      shuffle.classList.add("bxs-music");
+      shuffle.classList.remove("bx-shuffle");
+      shuffle.innerHTML = "next";
+      break;
+  }
+});
+
+music.addEventListener("ended", () => {
+  // index ++;
+  if (index == songs.length) {
+    index = 1
+  } else {
+    index++;
+  }
+  music.src = `audio/${index}.mp3`;
+  poster_bottom_play.src = `images/${index}.jpeg`;
+  music.play();
+  master_Play.classList.remove("bx-play");
+  master_Play.classList.add("bx-pause");
+  cloud.href = `audio/${index}.mp3`;
+  let songTitles = songs.filter((els) => {
+    return els.id == index;
+  });
+
+  songTitles.forEach((elss) => {
+    let { songName } = elss;
+    title.innerHTML = songName;
+    cloud.setAttribute("download", songName);
+  });
+
+  makeAllBackground();
+  Array.from(document.getElementsByClassName("songItem"))[
+    index - 1
+  ].style.background =
+    "rgb(105, 105, 105, .2)";
+  makeAllplays();
+  el.target.classList.remove("bxs-caret-right-circle");
+  el.target.classList.add("bx-pause-circle");
+  wave.classList.add("active1");
+});
+
+const next_music = () => {
+  if (index == songs.length) {
+    index = 1
+  } else {
+    index++;
+  }
+  music.src = `audio/${index}.mp3`;
+  poster_bottom_play.src = `images/${index}.jpeg`;
+  music.play();
+  master_Play.classList.remove("bx-play");
+  master_Play.classList.add("bx-pause");
+  cloud.href = `audio/${index}.mp3`;
+  let songTitles = songs.filter((els) => {
+    return els.id == index;
+  });
+
+  songTitles.forEach(elss => {
+    let { songName } = elss;
+    title.innerHTML = songName;
+    cloud.setAttribute("download", songName);
+  });
+
+  makeAllBackground();
+  Array.from(document.getElementsByClassName("songItem"))[index - 1].style.background = "rgb(105, 105, 105, .2)";
+  makeAllplays();
+  el.target.classList.remove("bxs-caret-right-circle");
+  el.target.classList.add("bx-pause-circle");
+  wave.classList.add("active1");
+}
+
+const repeat_music = () => {
+  index;
+  music.src = `audio/${index}.mp3`;
+  poster_bottom_play.src = `images/${index}.jpeg`;
+  music.play();
+  master_Play.classList.remove("bx-play");
+  master_Play.classList.add("bx-pause");
+  cloud.href = `audio/${index}.mp3`;
+  let songTitles = songs.filter((els) => {
+    return els.id == index;
+  });
+
+  songTitles.forEach(elss => {
+    let { songName } = elss;
+    title.innerHTML = songName;
+    cloud.setAttribute("download", songName);
+  });
+
+  makeAllBackground();
+  Array.from(document.getElementsByClassName("songItem"))[
+    index - 1
+  ].style.background =
+    "rgb(105, 105, 105, .2)";
+  makeAllplays();
+  el.target.classList.remove("bxs-caret-right-circle");
+  el.target.classList.add("bx-pause-circle");
+  wave.classList.add("active1");
+}
+
+const random_music = () => {
+  if (index == songs.length) {
+    index = 1;
+  } else {
+    index = Math.floor((Math.random() * songs.length) + 1);
+  }
+  music.src = `audio/${index}.mp3`;
+  poster_bottom_play.src = `images/${index}.jpeg`;
+  music.play();
+  master_Play.classList.remove("bx-play");
+  master_Play.classList.add("bx-pause");
+  cloud.href = `audio/${index}.mp3`;
+  let songTitles = songs.filter((els) => {
+    return els.id == index;
+  });
+
+  songTitles.forEach((elss) => {
+    let { songName } = elss;
+    title.innerHTML = songName;
+    cloud.setAttribute("download", songName);
+  });
+
+  makeAllBackground();
+  Array.from(document.getElementsByClassName("songItem"))[
+    index - 1
+  ].style.background =
+    "rgb(105, 105, 105, .2)";
+  makeAllplays();
+  el.target.classList.remove("bxs-caret-right-circle");
+  el.target.classList.add("bx-pause-circle");
+  wave.classList.add("active1");
+}
+
+music.addEventListener("ended", () => { 
+  let b = shuffle.innerHTML;
+
+  switch(b) {
+    case "repeat":
+        repeat_music();
+        break;
+    case "next":
+        next_music();
+        break;
+    case "random":
+        random_music();
+        break;
+  }
+})
