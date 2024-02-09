@@ -5,9 +5,12 @@
 ![Screenshot (26)](https://github.com/ganeshjadhav2402/Music-Website/assets/108882321/ff3fdcce-65a5-489f-b867-431e32ec6108)
 *25-01-2024*
 ![Screenshot (27)](https://github.com/ganeshjadhav2402/Music-Website/assets/108882321/a643b76a-0198-4e97-a2f7-7e40d1e8b3e6)
+
 *09-02-2024*
+## Log In Page:
 ![Screenshot 2024-02-09 130022](https://github.com/ganeshjadhav2402/Music-Website/assets/108882321/47954c16-d998-4c82-8c87-c42d61a98b1f)
 
+## Sign Up Page:
 ![Screenshot 2024-02-09 125947](https://github.com/ganeshjadhav2402/Music-Website/assets/108882321/218b3a2a-c559-401c-84c2-7d9aa74dbd36)
 
 ## Content Page:
