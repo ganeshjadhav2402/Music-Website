@@ -9,6 +9,12 @@
     <link rel="shortcut icon" href="images/download2.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <title>Music App</title>
+    <style>
+        header .song-side::before {
+            background: url('darshan_bg2.png');
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 
 <body>
@@ -110,12 +116,12 @@
                     <input type="text" placeholder="Search Music...">
                 </div>
                 <div class="user">
-                    
+
                     <img src="images/download.png" alt="">
                 </div>
             </nav>
             <div class="content">
-                <h1>Alan Walker-Fade</h1>
+                <h1>Darshan Raval</h1>
                 <p>You were the shadow to my light did you feel us Another start you fade <br> Away afraid our aim is
                     out of sight Wan see us Alive</p>
                 <div class="buttons">
@@ -182,60 +188,6 @@
                         <div class="img-play">
                             <img src="images/23.jpeg" alt="">
                             <i class='bx playListplay bxs-caret-right-circle' id="15"></i>
-                        </div>
-                        <h5>On My Way <br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img-play">
-                            <img src="images/23.jpeg" alt="">
-                            <i class='bx playListplay bxs-caret-right-circle' id="16"></i>
-                        </div>
-                        <h5>On My Way <br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img-play">
-                            <img src="images/23.jpeg" alt="">
-                            <i class='bx playListplay bxs-caret-right-circle' id="17"></i>
-                        </div>
-                        <h5>On My Way <br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img-play">
-                            <img src="images/23.jpeg" alt="">
-                            <i class='bx playListplay bxs-caret-right-circle' id="18"></i>
-                        </div>
-                        <h5>On My Way <br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img-play">
-                            <img src="images/23.jpeg" alt="">
-                            <i class='bx playListplay bxs-caret-right-circle' id="19"></i>
-                        </div>
-                        <h5>On My Way <br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img-play">
-                            <img src="images/23.jpeg" alt="">
-                            <i class='bx playListplay bxs-caret-right-circle' id="20"></i>
-                        </div>
-                        <h5>On My Way <br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img-play">
-                            <img src="imag23.jpeg" alt="">
-                            <i class='bx playListplay bxs-caret-right-circle' id="21"></i>
                         </div>
                         <h5>On My Way <br>
                             <div class="subtitle">Alan Walker</div>
@@ -343,7 +295,7 @@
             </div>
         </div>
     </header>
-    <script src="app.js"></script>
+    <script src="darshanr.js"></script>
 </body>
 
 </html>
